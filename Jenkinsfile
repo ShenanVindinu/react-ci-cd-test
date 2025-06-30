@@ -2,20 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('SCM Checkout') {
-            steps {
-                retry(3) {
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: '*/main']],
-                        userRemoteConfigs: [[
-                            url: 'https://github.com/ShenanVindinu/react-ci-cd-test.git', // Change this to your Node React repo URL
-                            credentialsId: 'di11soft-github-pass'
-                        ]]
-                    ])
-                }
-            }
-        }
 
         stage('Install Dependencies') {
             steps {
